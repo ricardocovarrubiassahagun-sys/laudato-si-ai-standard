@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/ricardocovarrubiassahagun-sys/laudato-si-ai-standard/discussions
+    about: Open-ended questions, implementation ideas, and community conversation.

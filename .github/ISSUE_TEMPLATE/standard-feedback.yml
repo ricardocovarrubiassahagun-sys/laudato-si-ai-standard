@@ -1,0 +1,50 @@
+name: Standard feedback
+description: Suggest an improvement, clarification, or change to the standard.
+title: "[Standard feedback] "
+labels: ["standard-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feedback should improve human autonomy, evidence quality, proportionality,
+        ecological relevance, accessibility, or model neutrality.
+  - type: textarea
+    id: section
+    attributes:
+      label: Section or principle
+      placeholder: e.g. PERSON lens, proportionality, evidence requirements, alternatives, governance
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem do you see?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Suggest wording or a concrete implementation change if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or examples
+      description: Add examples, references, test cases, or model outputs.
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Expected impact
+      options:
+        - "Clarity"
+        - "Human autonomy"
+        - "Proportionality"
+        - "Evidence quality"
+        - "Ecological relevance"
+        - "Accessibility"
+        - "Model neutrality"
+        - "Other"
+    validations:
+      required: true

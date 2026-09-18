@@ -1,0 +1,54 @@
+name: Adoption or integration report
+description: Tell us how you adopted the Laudato Si AI Standard.
+title: "[Adoption] "
+labels: ["adoption"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for documenting an adoption or integration.
+        Entries may be added to ADOPTERS.md with your consent.
+        Submitting this form does not imply endorsement by any institution.
+  - type: input
+    id: organization
+    attributes:
+      label: Organization or project
+      placeholder: Company, lab, nonprofit, open-source project, research group, or individual project
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Adoption level
+      options:
+        - "1 — Prompt"
+        - "2 — Tool / MCP / function calling"
+        - "3 — Evaluation / benchmark"
+        - "4 — Training / post-training / behavior design"
+        - "Multiple levels"
+    validations:
+      required: true
+  - type: textarea
+    id: use
+    attributes:
+      label: How are you using the standard?
+      description: Briefly explain the workflow, product, research, or integration.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Public link
+      description: Repository, product page, paper, demo, or documentation link.
+  - type: textarea
+    id: changes
+    attributes:
+      label: Modifications or extensions
+      description: Describe changes to the prompt, tool contract, benchmark, or implementation.
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I consent to this project/organization being listed in ADOPTERS.md with the information above.
+          required: true

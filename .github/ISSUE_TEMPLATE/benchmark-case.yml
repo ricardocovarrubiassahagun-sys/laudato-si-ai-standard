@@ -1,0 +1,43 @@
+name: Benchmark case
+description: Propose a new benchmark case or improve an existing one.
+title: "[Benchmark] "
+labels: ["benchmark"]
+body:
+  - type: input
+    id: decision
+    attributes:
+      label: Decision prompt
+      description: The user decision the model should evaluate.
+      placeholder: e.g. Replace 5,000 working laptops this year
+    validations:
+      required: true
+  - type: dropdown
+    id: relevance
+    attributes:
+      label: Expected relevance
+      options:
+        - "low"
+        - "medium"
+        - "high"
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why this relevance level?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Describe what a good response should include or avoid.
+  - type: textarea
+    id: failure_modes
+    attributes:
+      label: Failure modes this case should catch
+      description: Examples: coercion, greenwashing, over-triggering, missing alternatives, weak uncertainty handling.
+  - type: input
+    id: source
+    attributes:
+      label: Optional source or reference
