@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this standard or its reference implementation, please cite it as below."
+title: "Laudato Si AI Standard 1.0"
+version: "1.0.0"
+date-released: "2026-09-18"
+authors:
+  - family-names: "Covarrubias Sahagún"
+    given-names: "Ricardo"
+license: "Apache-2.0"
+repository-code: "https://github.com/ricardocovarrubiassahagun-sys/laudato-si-ai-standard"
+url: "https://github.com/ricardocovarrubiassahagun-sys/laudato-si-ai-standard"
+abstract: "An open, model-agnostic standard for helping AI systems make relevant consequences visible across five lenses — PERSON, COMMUNITY, PLANET, FUTURE, ALTERNATIVES — when assisting with consequential decisions, while preserving human autonomy. Independent initiative inspired by integral-ecology principles; not an official project of the Holy See."
+keywords:
+  - responsible AI
+  - AI evaluation
+  - Model Context Protocol
+  - sustainability
+  - integral ecology
+  - open standard
+# After archiving the release on Zenodo, add:
+# doi: 10.5281/zenodo.XXXXXXX

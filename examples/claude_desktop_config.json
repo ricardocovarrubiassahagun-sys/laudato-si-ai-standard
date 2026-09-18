@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "laudato-si": {
+      "command": "laudato-si-mcp",
+      "env": { "LAUDATO_PROVIDER": "mock" }
+    }
+  }
+}

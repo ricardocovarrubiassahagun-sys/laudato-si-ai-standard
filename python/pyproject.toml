@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "laudato-si"
+version = "1.0.0"
+description = "Laudato Si AI Standard 1.0 — reference implementation: laudato_si_check, MCP server and benchmark runner"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [{name = "Ricardo Covarrubias Sahagún"}]
+keywords = ["ai", "responsible-ai", "mcp", "evaluation", "sustainability", "integral-ecology", "open-standard"]
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+openai = ["openai>=1.40"]
+mcp = ["mcp>=1.2"]
+all = ["anthropic>=0.40", "openai>=1.40", "mcp>=1.2"]
+dev = ["pytest>=8", "ruff>=0.5", "mcp>=1.2"]
+
+[project.scripts]
+laudato-si = "laudato_si.cli:main"
+laudato-si-mcp = "laudato_si.server:main"
+laudato-si-benchmark = "laudato_si.benchmark:main"
+
+[project.urls]
+Homepage = "https://github.com/ricardocovarrubiassahagun-sys/laudato-si-ai-standard"
+Standard = "https://github.com/ricardocovarrubiassahagun-sys/laudato-si-ai-standard/blob/main/standard/LAUDATO_SI_AI_STANDARD_1.0.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["laudato_si*"]
+
+[tool.ruff]
+line-length = 120

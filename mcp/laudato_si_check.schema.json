@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ricardocovarrubiassahagun-sys/laudato-si-ai-standard/mcp/laudato_si_check.schema.json",
+  "title": "laudato_si_check",
+  "description": "Tool contract of the Laudato Si AI Standard 1.0. The tool informs; it does not make the user's decision.",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "decision": {"type": "string", "minLength": 1},
+        "context": {"type": "string"},
+        "language": {"type": "string", "description": "BCP-47 tag, e.g. en, es, it"},
+        "use_research": {"type": "boolean", "default": false}
+      },
+      "required": ["decision"],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "relevant": {"type": "boolean"},
+        "relevance_level": {"type": "string", "enum": ["low", "medium", "high"]},
+        "summary": {"type": "string"},
+        "person": {"$ref": "#/$defs/lens"},
+        "community": {"$ref": "#/$defs/lens"},
+        "planet": {"$ref": "#/$defs/lens"},
+        "future": {"$ref": "#/$defs/lens"},
+        "alternatives": {"type": "array", "items": {"type": "string"}},
+        "evidence_needed": {"type": "array", "items": {"type": "string"}},
+        "sources": {"type": "array", "items": {"type": "string"}},
+        "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
+      },
+      "required": ["relevant", "relevance_level", "summary", "person", "community", "planet", "future", "alternatives", "evidence_needed", "sources", "confidence"]
+    }
+  },
+  "$defs": {
+    "lens": {
+      "type": "object",
+      "description": "Empty object when relevant=false.",
+      "properties": {
+        "summary": {"type": "string"},
+        "factors": {"type": "array", "items": {"type": "string"}},
+        "uncertainty": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  }
+}
