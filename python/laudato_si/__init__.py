@@ -15,4 +15,4 @@ from .check import (
 )
 
 __version__ = "1.0.0"
-__all__ = ["laudato_si_check", "laudato_si_check_sync", "CheckResult", "SYSTEM_PROMPT", "__version__"]
+__all__ = ["SYSTEM_PROMPT", "CheckResult", "__version__", "laudato_si_check", "laudato_si_check_sync"]

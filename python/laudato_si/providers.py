@@ -70,12 +70,12 @@ _HIGH = re.compile(
     r"\b(\d{3,}|thousand|million|factory|plant|homes?|housing|infrastructure|land|acres?|hectares?|"
     r"procure|procurement|fleet|data ?center|mine|mining|packaging|disposable|demolish|demolition|"
     r"replace all|expand|construction|pipeline|water|energy|waste|emissions?)\b",
-    re.I,
+    re.IGNORECASE,
 )
 _MEDIUM = re.compile(
     r"\b(buy|purchase|replace|upgrade|laptop|phone|car|appliance|washing machine|fridge|"
     r"repair|renovat|travel|flight|commute|diet)\b",
-    re.I,
+    re.IGNORECASE,
 )
 
 

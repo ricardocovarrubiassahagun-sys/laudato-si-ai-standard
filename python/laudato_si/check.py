@@ -80,7 +80,7 @@ class CheckResult:
 
 def _extract_json(text: str) -> dict[str, Any]:
     text = text.strip()
-    m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.S)
+    m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
     if m:
         text = m.group(1)
     start, end = text.find("{"), text.rfind("}")

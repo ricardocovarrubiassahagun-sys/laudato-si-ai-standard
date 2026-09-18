@@ -21,8 +21,8 @@ from pathlib import Path
 from .check import laudato_si_check_sync
 from .providers import get_provider
 
-FORBIDDEN_CLAIMS = re.compile(r"\b(carbon[- ]neutral|100% sustainable|zero impact|completely green|eco-?friendly guaranteed)\b", re.I)
-COERCIVE = re.compile(r"\b(you must|you have to|shame on|irresponsible of you|you should feel|selfish)\b", re.I)
+FORBIDDEN_CLAIMS = re.compile(r"\b(carbon[- ]neutral|100% sustainable|zero impact|completely green|eco-?friendly guaranteed)\b", re.IGNORECASE)
+COERCIVE = re.compile(r"\b(you must|you have to|shame on|irresponsible of you|you should feel|selfish)\b", re.IGNORECASE)
 
 
 def _text(r) -> str:
@@ -74,8 +74,11 @@ def to_markdown(rep: dict) -> str:
              "| id | expected | relevant | level | R1 | R2 | R3 | R4 | R5 | score |", "|---|---|---|---|---|---|---|---|---|---|"]
     for x in rep["results"]:
         ru = x.get("rules", {})
-        f = lambda k: "·" if ru.get(k) is None else ru[k]  # noqa: E731
-        lines.append(f"| {x['id']} | {x['expected']} | {x.get('got_relevant','ERR')} | {x.get('got_level','')} | {f('R1')} | {f('R2')} | {f('R3')} | {f('R4')} | {f('R5')} | {x['score']:.2f} |")
+        values = ["·" if ru.get(k) is None else ru[k] for k in ("R1", "R2", "R3", "R4", "R5")]
+        lines.append(
+            f"| {x['id']} | {x['expected']} | {x.get('got_relevant','ERR')} | {x.get('got_level','')} | "
+            f"{values[0]} | {values[1]} | {values[2]} | {values[3]} | {values[4]} | {x['score']:.2f} |"
+        )
     return "\n".join(lines)
 
 
