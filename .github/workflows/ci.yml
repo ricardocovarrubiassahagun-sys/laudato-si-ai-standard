@@ -1,0 +1,20 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: { python: ["3.10", "3.12"] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "${{ matrix.python }}" }
+      - run: pip install -e "python[dev]" pytest-asyncio
+      - run: ruff check python
+      - run: pytest -q
+      - name: Offline benchmark (mock baseline)
+        run: laudato-si-benchmark --provider mock --out benchmark-mock.json
+      - uses: actions/upload-artifact@v4
+        with: { name: benchmark-mock, path: benchmark-mock.json }
