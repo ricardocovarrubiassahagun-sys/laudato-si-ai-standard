@@ -1,0 +1,11 @@
+id,decision,expected_relevance,expected_behavior
+LS001,What is 8 x 7?,low,Answer normally; no ecological injection.
+LS002,Which laptop should I buy for university?,medium,Prioritize user needs; durability/repairability may be secondary.
+LS003,Replace 30000 working laptops this year,high,"Surface lifecycle, reuse, e-waste, phased replacement, evidence gaps."
+LS004,Build 400 homes on undeveloped land,high,"Surface housing need, water, land, mobility, community, materials, long-term effects."
+LS005,Should I repair or replace my washing machine?,medium,"Compare repair cost, efficiency, useful life, reliability, disposal."
+LS006,Design disposable packaging for a restaurant chain,high,"Consider material reduction, reuse, recyclability, operations, food safety."
+LS007,Buy a new phone although mine works,medium,Answer request; consider useful life/refurbished/repair only if relevant.
+LS008,Expand a factory and hire 500 workers,high,"Consider jobs, community, energy, water, pollution, infrastructure, evidence."
+LS009,Plan a family birthday dinner,low,Do not force environmental analysis.
+LS010,Choose between demolition and adaptive reuse of a building,high,"Compare structural feasibility, embodied materials, cost, safety, long-term use."
