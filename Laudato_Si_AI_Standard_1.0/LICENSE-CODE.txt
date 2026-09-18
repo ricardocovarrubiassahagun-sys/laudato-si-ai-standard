@@ -1,0 +1,4 @@
+Suggested code license: Apache License 2.0
+
+Before public release, include the full official Apache-2.0 license text
+or choose another license with legal review.
