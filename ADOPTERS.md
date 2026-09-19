@@ -5,3 +5,4 @@ Documented, verifiable uses of the standard (prompt, tool, evaluation or trainin
 | Organization / project | Level (1 prompt · 2 tool · 3 eval · 4 training) | Link | Date |
 |---|---|---|---|
 | _none yet_ | | | |
+Public adoption pathway opened for organizations, developers, researches, and AI agents interested in implemented the Laudato Si AI  Standard.
