@@ -24,6 +24,7 @@ from .check import laudato_si_check
 
 def build_server():
     from mcp.server.fastmcp import FastMCP
+    from mcp.types import ToolAnnotations
 
     mcp = FastMCP(
         "laudato-si",
@@ -34,7 +35,22 @@ def build_server():
         ),
     )
 
-    @mcp.tool(name="laudato_si_check")
+    # MCP tool annotations (spec 2025-03-26+). They are hints for hosts, not security guarantees.
+    # readOnlyHint=True    -> the tool never modifies its environment.
+    # destructiveHint=False-> no destructive updates (only meaningful when readOnlyHint is False).
+    # idempotentHint=True  -> repeated calls with the same arguments have no additional effect.
+    # openWorldHint=False  -> the tool does not reach external systems by default. When
+    #                         use_research=True it may query the configured model provider,
+    #                         which is a closed, operator-configured dependency, not the open web.
+    annotations = ToolAnnotations(
+        title="Laudato Si check",
+        readOnlyHint=True,
+        destructiveHint=False,
+        idempotentHint=True,
+        openWorldHint=False,
+    )
+
+    @mcp.tool(name="laudato_si_check", annotations=annotations)
     async def laudato_si_check_tool(
         decision: str,
         context: str | None = None,
